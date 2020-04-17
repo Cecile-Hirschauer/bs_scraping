@@ -18,5 +18,13 @@ artist_name_list = soup.find(class_='BodyText')
 artist_name_list_items = artist_name_list.find_all('a')
 
 # 3 - create a loop to print out all artists' names
+#for artist_name in artist_name_list_items:
+#   print(artist_name.prettify())
+
+# 5 - use .content to pull out the <a> tag's children
 for artist_name in artist_name_list_items:
-    print(artist_name.prettify())
+    names = artist_name.contents[0]
+    links = 'https://web.archive.org' + artist_name.get('href')
+    print(names)
+    print(links)
+
